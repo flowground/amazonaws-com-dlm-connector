@@ -1,0 +1,2530 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "https://dlm.amazonaws.com/"
+        },
+        {
+            "url": "http://dlm.amazonaws.com/"
+        }
+    ],
+    "info": {
+        "contact": {
+            "email": "mike.ralphson@gmail.com",
+            "name": "Mike Ralphson",
+            "url": "https://github.com/mermade/aws2openapi",
+            "x-twitter": "PermittedSoc"
+        },
+        "description": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+        "license": {
+            "name": "Apache 2.0 License",
+            "url": "http://www.apache.org/licenses/"
+        },
+        "termsOfService": "https://aws.amazon.com/service-terms/",
+        "title": "Amazon Data Lifecycle Manager",
+        "version": "2018-01-12",
+        "x-apiClientRegistration": {
+            "url": "https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct"
+        },
+        "x-apisguru-categories": [
+            "cloud"
+        ],
+        "x-logo": {
+            "backgroundColor": "#FFFFFF",
+            "url": "https://api.apis.guru/v2/cache/logo/https_twitter.com_awscloud_profile_image.jpeg"
+        },
+        "x-origin": [
+            {
+                "contentType": "application/json",
+                "converter": {
+                    "url": "https://github.com/mermade/aws2openapi",
+                    "version": "1.0.0"
+                },
+                "url": "https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/dlm-2018-01-12.normal.json",
+                "x-apisguru-direct": true
+            }
+        ],
+        "x-preferred": true,
+        "x-providerName": "amazonaws.com",
+        "x-release": "v4",
+        "x-serviceName": "dlm"
+    },
+    "externalDocs": {
+        "description": "Amazon Web Services documentation",
+        "url": "https://aws.amazon.com/dlm/"
+    },
+    "security": [
+        {
+            "hmac": []
+        }
+    ],
+    "paths": {
+        "/policies": {
+            "get": {
+                "description": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
+                "operationId": "GetLifecyclePolicies",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Policies": {
+                                            "description": "Summary information about the lifecycle policies.",
+                                            "items": {
+                                                "description": "Summary information about a lifecycle policy.",
+                                                "properties": {
+                                                    "Description": {
+                                                        "description": "The description of the lifecycle policy.",
+                                                        "maxLength": 500,
+                                                        "minLength": 0,
+                                                        "type": "string"
+                                                    },
+                                                    "PolicyId": {
+                                                        "description": "The identifier of the lifecycle policy.",
+                                                        "type": "string"
+                                                    },
+                                                    "State": {
+                                                        "description": "The activation state of the lifecycle policy.",
+                                                        "enum": [
+                                                            "ENABLED",
+                                                            "DISABLED",
+                                                            "ERROR"
+                                                        ],
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "ResourceNotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "InvalidRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "InternalServerException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "post": {
+                "description": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
+                "operationId": "CreateLifecyclePolicy",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "PolicyId": {
+                                            "description": "The identifier of the lifecycle policy.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "InvalidRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "InternalServerException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "Description": {
+                                        "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.",
+                                        "maxLength": 500,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "ExecutionRoleArn": {
+                                        "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                                        "type": "string"
+                                    },
+                                    "PolicyDetails": {
+                                        "description": "<p>The configuration details of the lifecycle policy.</p> <p>Target tags cannot be re-used across lifecycle policies.</p>",
+                                        "properties": {
+                                            "ResourceTypes": {
+                                                "description": "The resource type.",
+                                                "items": {
+                                                    "enum": [
+                                                        "VOLUME"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "maxItems": 1,
+                                                "minItems": 1,
+                                                "type": "array"
+                                            },
+                                            "Schedules": {
+                                                "description": "The schedule of policy-defined actions.",
+                                                "items": {
+                                                    "description": "Specifies a schedule.",
+                                                    "properties": {
+                                                        "CopyTags": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "CreateRule": {
+                                                            "description": "The create rule.",
+                                                            "properties": {
+                                                                "Interval": {
+                                                                    "description": "The interval. The supported values are 12 and 24.",
+                                                                    "minimum": 1,
+                                                                    "type": "integer"
+                                                                },
+                                                                "IntervalUnit": {
+                                                                    "description": "The interval unit.",
+                                                                    "enum": [
+                                                                        "HOURS"
+                                                                    ],
+                                                                    "type": "string"
+                                                                },
+                                                                "Times": {
+                                                                    "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                                    "items": {
+                                                                        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                                        "type": "string"
+                                                                    },
+                                                                    "maxItems": 1,
+                                                                    "type": "array"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "Interval",
+                                                                "IntervalUnit"
+                                                            ],
+                                                            "type": "object"
+                                                        },
+                                                        "Name": {
+                                                            "description": "The name of the schedule.",
+                                                            "maxLength": 500,
+                                                            "minLength": 0,
+                                                            "type": "string"
+                                                        },
+                                                        "RetainRule": {
+                                                            "description": "The retain rule.",
+                                                            "properties": {
+                                                                "Count": {
+                                                                    "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                                    "maximum": 1000,
+                                                                    "minimum": 1,
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "Count"
+                                                            ],
+                                                            "type": "object"
+                                                        },
+                                                        "TagsToAdd": {
+                                                            "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                                            "items": {
+                                                                "description": "Specifies a tag for a resource.",
+                                                                "properties": {
+                                                                    "Key": {
+                                                                        "description": "The tag key.",
+                                                                        "type": "string"
+                                                                    },
+                                                                    "Value": {
+                                                                        "description": "The tag value.",
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "Key",
+                                                                    "Value"
+                                                                ],
+                                                                "type": "object"
+                                                            },
+                                                            "maxItems": 50,
+                                                            "minItems": 0,
+                                                            "type": "array"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "maxItems": 1,
+                                                "minItems": 1,
+                                                "type": "array"
+                                            },
+                                            "TargetTags": {
+                                                "description": "The single tag that identifies targeted resources for this policy.",
+                                                "items": {
+                                                    "description": "Specifies a tag for a resource.",
+                                                    "properties": {
+                                                        "Key": {
+                                                            "description": "The tag key.",
+                                                            "type": "string"
+                                                        },
+                                                        "Value": {
+                                                            "description": "The tag value.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Key",
+                                                        "Value"
+                                                    ],
+                                                    "type": "object"
+                                                },
+                                                "maxItems": 50,
+                                                "minItems": 1,
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "State": {
+                                        "description": "The desired activation state of the lifecycle policy after creation.",
+                                        "enum": [
+                                            "ENABLED",
+                                            "DISABLED"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "ExecutionRoleArn",
+                                    "Description",
+                                    "State",
+                                    "PolicyDetails"
+                                ],
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/policies/{policyId}": {
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "patch": {
+                "description": "Updates the specified lifecycle policy.",
+                "operationId": "UpdateLifecyclePolicy",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "policyId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "ResourceNotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "InvalidRequestException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "InternalServerException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "483": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "Description": {
+                                        "description": "A description of the lifecycle policy.",
+                                        "maxLength": 500,
+                                        "minLength": 0,
+                                        "type": "string"
+                                    },
+                                    "ExecutionRoleArn": {
+                                        "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                                        "type": "string"
+                                    },
+                                    "PolicyDetails": {
+                                        "description": "<p>The configuration of the lifecycle policy.</p> <p>Target tags cannot be re-used across policies.</p>",
+                                        "properties": {
+                                            "ResourceTypes": {
+                                                "description": "The resource type.",
+                                                "items": {
+                                                    "enum": [
+                                                        "VOLUME"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "maxItems": 1,
+                                                "minItems": 1,
+                                                "type": "array"
+                                            },
+                                            "Schedules": {
+                                                "description": "The schedule of policy-defined actions.",
+                                                "items": {
+                                                    "description": "Specifies a schedule.",
+                                                    "properties": {
+                                                        "CopyTags": {
+                                                            "type": "boolean"
+                                                        },
+                                                        "CreateRule": {
+                                                            "description": "The create rule.",
+                                                            "properties": {
+                                                                "Interval": {
+                                                                    "description": "The interval. The supported values are 12 and 24.",
+                                                                    "minimum": 1,
+                                                                    "type": "integer"
+                                                                },
+                                                                "IntervalUnit": {
+                                                                    "description": "The interval unit.",
+                                                                    "enum": [
+                                                                        "HOURS"
+                                                                    ],
+                                                                    "type": "string"
+                                                                },
+                                                                "Times": {
+                                                                    "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                                    "items": {
+                                                                        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                                        "type": "string"
+                                                                    },
+                                                                    "maxItems": 1,
+                                                                    "type": "array"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "Interval",
+                                                                "IntervalUnit"
+                                                            ],
+                                                            "type": "object"
+                                                        },
+                                                        "Name": {
+                                                            "description": "The name of the schedule.",
+                                                            "maxLength": 500,
+                                                            "minLength": 0,
+                                                            "type": "string"
+                                                        },
+                                                        "RetainRule": {
+                                                            "description": "The retain rule.",
+                                                            "properties": {
+                                                                "Count": {
+                                                                    "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                                    "maximum": 1000,
+                                                                    "minimum": 1,
+                                                                    "type": "integer"
+                                                                }
+                                                            },
+                                                            "required": [
+                                                                "Count"
+                                                            ],
+                                                            "type": "object"
+                                                        },
+                                                        "TagsToAdd": {
+                                                            "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                                            "items": {
+                                                                "description": "Specifies a tag for a resource.",
+                                                                "properties": {
+                                                                    "Key": {
+                                                                        "description": "The tag key.",
+                                                                        "type": "string"
+                                                                    },
+                                                                    "Value": {
+                                                                        "description": "The tag value.",
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "Key",
+                                                                    "Value"
+                                                                ],
+                                                                "type": "object"
+                                                            },
+                                                            "maxItems": 50,
+                                                            "minItems": 0,
+                                                            "type": "array"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "maxItems": 1,
+                                                "minItems": 1,
+                                                "type": "array"
+                                            },
+                                            "TargetTags": {
+                                                "description": "The single tag that identifies targeted resources for this policy.",
+                                                "items": {
+                                                    "description": "Specifies a tag for a resource.",
+                                                    "properties": {
+                                                        "Key": {
+                                                            "description": "The tag key.",
+                                                            "type": "string"
+                                                        },
+                                                        "Value": {
+                                                            "description": "The tag value.",
+                                                            "type": "string"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Key",
+                                                        "Value"
+                                                    ],
+                                                    "type": "object"
+                                                },
+                                                "maxItems": 50,
+                                                "minItems": 1,
+                                                "type": "array"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "State": {
+                                        "description": "The desired activation state of the lifecycle policy after creation.",
+                                        "enum": [
+                                            "ENABLED",
+                                            "DISABLED"
+                                        ],
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            }
+        },
+        "/policies/{policyId}/": {
+            "delete": {
+                "description": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
+                "operationId": "DeleteLifecyclePolicy",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "policyId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {},
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "ResourceNotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "InternalServerException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "get": {
+                "description": "Gets detailed information about the specified lifecycle policy.",
+                "operationId": "GetLifecyclePolicy",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "policyId",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "Policy": {
+                                            "description": "Detailed information about the lifecycle policy.",
+                                            "properties": {
+                                                "DateCreated": {
+                                                    "description": "The local date and time when the lifecycle policy was created.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "DateModified": {
+                                                    "description": "The local date and time when the lifecycle policy was last modified.",
+                                                    "format": "date-time",
+                                                    "type": "string"
+                                                },
+                                                "Description": {
+                                                    "description": "The description of the lifecycle policy.",
+                                                    "maxLength": 500,
+                                                    "minLength": 0,
+                                                    "type": "string"
+                                                },
+                                                "ExecutionRoleArn": {
+                                                    "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                                                    "type": "string"
+                                                },
+                                                "PolicyDetails": {
+                                                    "description": "The configuration of the lifecycle policy",
+                                                    "properties": {
+                                                        "ResourceTypes": {
+                                                            "description": "The resource type.",
+                                                            "items": {
+                                                                "enum": [
+                                                                    "VOLUME"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "maxItems": 1,
+                                                            "minItems": 1,
+                                                            "type": "array"
+                                                        },
+                                                        "Schedules": {
+                                                            "description": "The schedule of policy-defined actions.",
+                                                            "items": {
+                                                                "description": "Specifies a schedule.",
+                                                                "properties": {
+                                                                    "CopyTags": {
+                                                                        "type": "boolean"
+                                                                    },
+                                                                    "CreateRule": {
+                                                                        "description": "The create rule.",
+                                                                        "properties": {
+                                                                            "Interval": {
+                                                                                "description": "The interval. The supported values are 12 and 24.",
+                                                                                "minimum": 1,
+                                                                                "type": "integer"
+                                                                            },
+                                                                            "IntervalUnit": {
+                                                                                "description": "The interval unit.",
+                                                                                "enum": [
+                                                                                    "HOURS"
+                                                                                ],
+                                                                                "type": "string"
+                                                                            },
+                                                                            "Times": {
+                                                                                "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                                                "items": {
+                                                                                    "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "maxItems": 1,
+                                                                                "type": "array"
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "Interval",
+                                                                            "IntervalUnit"
+                                                                        ],
+                                                                        "type": "object"
+                                                                    },
+                                                                    "Name": {
+                                                                        "description": "The name of the schedule.",
+                                                                        "maxLength": 500,
+                                                                        "minLength": 0,
+                                                                        "type": "string"
+                                                                    },
+                                                                    "RetainRule": {
+                                                                        "description": "The retain rule.",
+                                                                        "properties": {
+                                                                            "Count": {
+                                                                                "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                                                "maximum": 1000,
+                                                                                "minimum": 1,
+                                                                                "type": "integer"
+                                                                            }
+                                                                        },
+                                                                        "required": [
+                                                                            "Count"
+                                                                        ],
+                                                                        "type": "object"
+                                                                    },
+                                                                    "TagsToAdd": {
+                                                                        "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                                                        "items": {
+                                                                            "description": "Specifies a tag for a resource.",
+                                                                            "properties": {
+                                                                                "Key": {
+                                                                                    "description": "The tag key.",
+                                                                                    "type": "string"
+                                                                                },
+                                                                                "Value": {
+                                                                                    "description": "The tag value.",
+                                                                                    "type": "string"
+                                                                                }
+                                                                            },
+                                                                            "required": [
+                                                                                "Key",
+                                                                                "Value"
+                                                                            ],
+                                                                            "type": "object"
+                                                                        },
+                                                                        "maxItems": 50,
+                                                                        "minItems": 0,
+                                                                        "type": "array"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            },
+                                                            "maxItems": 1,
+                                                            "minItems": 1,
+                                                            "type": "array"
+                                                        },
+                                                        "TargetTags": {
+                                                            "description": "The single tag that identifies targeted resources for this policy.",
+                                                            "items": {
+                                                                "description": "Specifies a tag for a resource.",
+                                                                "properties": {
+                                                                    "Key": {
+                                                                        "description": "The tag key.",
+                                                                        "type": "string"
+                                                                    },
+                                                                    "Value": {
+                                                                        "description": "The tag value.",
+                                                                        "type": "string"
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "Key",
+                                                                    "Value"
+                                                                ],
+                                                                "type": "object"
+                                                            },
+                                                            "maxItems": 50,
+                                                            "minItems": 1,
+                                                            "type": "array"
+                                                        }
+                                                    },
+                                                    "type": "object"
+                                                },
+                                                "PolicyId": {
+                                                    "description": "The identifier of the lifecycle policy.",
+                                                    "type": "string"
+                                                },
+                                                "State": {
+                                                    "description": "The activation state of the lifecycle policy.",
+                                                    "enum": [
+                                                        "ENABLED",
+                                                        "DISABLED",
+                                                        "ERROR"
+                                                    ],
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "480": {
+                        "description": "ResourceNotFoundException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "481": {
+                        "description": "InternalServerException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "482": {
+                        "description": "LimitExceededException",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {},
+                                "type": "object"
+                            }
+                        }
+                    },
+                    "required": true
+                }
+            },
+            "parameters": [
+                {
+                    "in": "query",
+                    "name": "Action",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "query",
+                    "name": "Version",
+                    "required": true,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Content-Sha256",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Date",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Algorithm",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Credential",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Security-Token",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-Signature",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                },
+                {
+                    "in": "header",
+                    "name": "X-Amz-SignedHeaders",
+                    "required": false,
+                    "schema": {
+                        "type": "string"
+                    }
+                }
+            ]
+        }
+    },
+    "components": {
+        "schemas": {
+            "CopyTags": {
+                "type": "boolean"
+            },
+            "Count": {
+                "maximum": 1000,
+                "minimum": 1,
+                "type": "integer"
+            },
+            "CreateLifecyclePolicyRequest": {
+                "properties": {
+                    "Description": {
+                        "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported.",
+                        "maxLength": 500,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "ExecutionRoleArn": {
+                        "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                        "type": "string"
+                    },
+                    "PolicyDetails": {
+                        "description": "<p>The configuration details of the lifecycle policy.</p> <p>Target tags cannot be re-used across lifecycle policies.</p>",
+                        "properties": {
+                            "ResourceTypes": {
+                                "description": "The resource type.",
+                                "items": {
+                                    "enum": [
+                                        "VOLUME"
+                                    ],
+                                    "type": "string"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "Schedules": {
+                                "description": "The schedule of policy-defined actions.",
+                                "items": {
+                                    "description": "Specifies a schedule.",
+                                    "properties": {
+                                        "CopyTags": {
+                                            "type": "boolean"
+                                        },
+                                        "CreateRule": {
+                                            "description": "The create rule.",
+                                            "properties": {
+                                                "Interval": {
+                                                    "description": "The interval. The supported values are 12 and 24.",
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                },
+                                                "IntervalUnit": {
+                                                    "description": "The interval unit.",
+                                                    "enum": [
+                                                        "HOURS"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "Times": {
+                                                    "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                    "items": {
+                                                        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                        "type": "string"
+                                                    },
+                                                    "maxItems": 1,
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "Interval",
+                                                "IntervalUnit"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "Name": {
+                                            "description": "The name of the schedule.",
+                                            "maxLength": 500,
+                                            "minLength": 0,
+                                            "type": "string"
+                                        },
+                                        "RetainRule": {
+                                            "description": "The retain rule.",
+                                            "properties": {
+                                                "Count": {
+                                                    "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                    "maximum": 1000,
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "required": [
+                                                "Count"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "TagsToAdd": {
+                                            "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                            "items": {
+                                                "description": "Specifies a tag for a resource.",
+                                                "properties": {
+                                                    "Key": {
+                                                        "description": "The tag key.",
+                                                        "type": "string"
+                                                    },
+                                                    "Value": {
+                                                        "description": "The tag value.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "Key",
+                                                    "Value"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "maxItems": 50,
+                                            "minItems": 0,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "TargetTags": {
+                                "description": "The single tag that identifies targeted resources for this policy.",
+                                "items": {
+                                    "description": "Specifies a tag for a resource.",
+                                    "properties": {
+                                        "Key": {
+                                            "description": "The tag key.",
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "description": "The tag value.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Key",
+                                        "Value"
+                                    ],
+                                    "type": "object"
+                                },
+                                "maxItems": 50,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "State": {
+                        "description": "The desired activation state of the lifecycle policy after creation.",
+                        "enum": [
+                            "ENABLED",
+                            "DISABLED"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ExecutionRoleArn",
+                    "Description",
+                    "State",
+                    "PolicyDetails"
+                ],
+                "type": "object"
+            },
+            "CreateLifecyclePolicyResponse": {
+                "properties": {
+                    "PolicyId": {
+                        "description": "The identifier of the lifecycle policy.",
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "CreateRule": {
+                "description": "Specifies when to create snapshots of EBS volumes.",
+                "properties": {
+                    "Interval": {
+                        "description": "The interval. The supported values are 12 and 24.",
+                        "minimum": 1,
+                        "type": "integer"
+                    },
+                    "IntervalUnit": {
+                        "description": "The interval unit.",
+                        "enum": [
+                            "HOURS"
+                        ],
+                        "type": "string"
+                    },
+                    "Times": {
+                        "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                        "items": {
+                            "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                            "type": "string"
+                        },
+                        "maxItems": 1,
+                        "type": "array"
+                    }
+                },
+                "required": [
+                    "Interval",
+                    "IntervalUnit"
+                ],
+                "type": "object"
+            },
+            "DeleteLifecyclePolicyRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "DeleteLifecyclePolicyResponse": {
+                "properties": {},
+                "type": "object"
+            },
+            "ExecutionRoleArn": {
+                "type": "string"
+            },
+            "GetLifecyclePoliciesRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "GetLifecyclePoliciesResponse": {
+                "properties": {
+                    "Policies": {
+                        "description": "Summary information about the lifecycle policies.",
+                        "items": {
+                            "description": "Summary information about a lifecycle policy.",
+                            "properties": {
+                                "Description": {
+                                    "description": "The description of the lifecycle policy.",
+                                    "maxLength": 500,
+                                    "minLength": 0,
+                                    "type": "string"
+                                },
+                                "PolicyId": {
+                                    "description": "The identifier of the lifecycle policy.",
+                                    "type": "string"
+                                },
+                                "State": {
+                                    "description": "The activation state of the lifecycle policy.",
+                                    "enum": [
+                                        "ENABLED",
+                                        "DISABLED",
+                                        "ERROR"
+                                    ],
+                                    "type": "string"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "GetLifecyclePolicyRequest": {
+                "properties": {},
+                "type": "object"
+            },
+            "GetLifecyclePolicyResponse": {
+                "properties": {
+                    "Policy": {
+                        "description": "Detailed information about the lifecycle policy.",
+                        "properties": {
+                            "DateCreated": {
+                                "description": "The local date and time when the lifecycle policy was created.",
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "DateModified": {
+                                "description": "The local date and time when the lifecycle policy was last modified.",
+                                "format": "date-time",
+                                "type": "string"
+                            },
+                            "Description": {
+                                "description": "The description of the lifecycle policy.",
+                                "maxLength": 500,
+                                "minLength": 0,
+                                "type": "string"
+                            },
+                            "ExecutionRoleArn": {
+                                "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                                "type": "string"
+                            },
+                            "PolicyDetails": {
+                                "description": "The configuration of the lifecycle policy",
+                                "properties": {
+                                    "ResourceTypes": {
+                                        "description": "The resource type.",
+                                        "items": {
+                                            "enum": [
+                                                "VOLUME"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "maxItems": 1,
+                                        "minItems": 1,
+                                        "type": "array"
+                                    },
+                                    "Schedules": {
+                                        "description": "The schedule of policy-defined actions.",
+                                        "items": {
+                                            "description": "Specifies a schedule.",
+                                            "properties": {
+                                                "CopyTags": {
+                                                    "type": "boolean"
+                                                },
+                                                "CreateRule": {
+                                                    "description": "The create rule.",
+                                                    "properties": {
+                                                        "Interval": {
+                                                            "description": "The interval. The supported values are 12 and 24.",
+                                                            "minimum": 1,
+                                                            "type": "integer"
+                                                        },
+                                                        "IntervalUnit": {
+                                                            "description": "The interval unit.",
+                                                            "enum": [
+                                                                "HOURS"
+                                                            ],
+                                                            "type": "string"
+                                                        },
+                                                        "Times": {
+                                                            "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                            "items": {
+                                                                "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                                "type": "string"
+                                                            },
+                                                            "maxItems": 1,
+                                                            "type": "array"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Interval",
+                                                        "IntervalUnit"
+                                                    ],
+                                                    "type": "object"
+                                                },
+                                                "Name": {
+                                                    "description": "The name of the schedule.",
+                                                    "maxLength": 500,
+                                                    "minLength": 0,
+                                                    "type": "string"
+                                                },
+                                                "RetainRule": {
+                                                    "description": "The retain rule.",
+                                                    "properties": {
+                                                        "Count": {
+                                                            "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                            "maximum": 1000,
+                                                            "minimum": 1,
+                                                            "type": "integer"
+                                                        }
+                                                    },
+                                                    "required": [
+                                                        "Count"
+                                                    ],
+                                                    "type": "object"
+                                                },
+                                                "TagsToAdd": {
+                                                    "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                                    "items": {
+                                                        "description": "Specifies a tag for a resource.",
+                                                        "properties": {
+                                                            "Key": {
+                                                                "description": "The tag key.",
+                                                                "type": "string"
+                                                            },
+                                                            "Value": {
+                                                                "description": "The tag value.",
+                                                                "type": "string"
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "Key",
+                                                            "Value"
+                                                        ],
+                                                        "type": "object"
+                                                    },
+                                                    "maxItems": 50,
+                                                    "minItems": 0,
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "maxItems": 1,
+                                        "minItems": 1,
+                                        "type": "array"
+                                    },
+                                    "TargetTags": {
+                                        "description": "The single tag that identifies targeted resources for this policy.",
+                                        "items": {
+                                            "description": "Specifies a tag for a resource.",
+                                            "properties": {
+                                                "Key": {
+                                                    "description": "The tag key.",
+                                                    "type": "string"
+                                                },
+                                                "Value": {
+                                                    "description": "The tag value.",
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "Key",
+                                                "Value"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "maxItems": 50,
+                                        "minItems": 1,
+                                        "type": "array"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "PolicyId": {
+                                "description": "The identifier of the lifecycle policy.",
+                                "type": "string"
+                            },
+                            "State": {
+                                "description": "The activation state of the lifecycle policy.",
+                                "enum": [
+                                    "ENABLED",
+                                    "DISABLED",
+                                    "ERROR"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    }
+                },
+                "type": "object"
+            },
+            "GettablePolicyStateValues": {
+                "enum": [
+                    "ENABLED",
+                    "DISABLED",
+                    "ERROR"
+                ],
+                "type": "string"
+            },
+            "InternalServerException": {},
+            "Interval": {
+                "minimum": 1,
+                "type": "integer"
+            },
+            "IntervalUnitValues": {
+                "enum": [
+                    "HOURS"
+                ],
+                "type": "string"
+            },
+            "InvalidRequestException": {},
+            "LifecyclePolicy": {
+                "description": "Detailed information about a lifecycle policy.",
+                "properties": {
+                    "DateCreated": {
+                        "description": "The local date and time when the lifecycle policy was created.",
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "DateModified": {
+                        "description": "The local date and time when the lifecycle policy was last modified.",
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "Description": {
+                        "description": "The description of the lifecycle policy.",
+                        "maxLength": 500,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "ExecutionRoleArn": {
+                        "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                        "type": "string"
+                    },
+                    "PolicyDetails": {
+                        "description": "The configuration of the lifecycle policy",
+                        "properties": {
+                            "ResourceTypes": {
+                                "description": "The resource type.",
+                                "items": {
+                                    "enum": [
+                                        "VOLUME"
+                                    ],
+                                    "type": "string"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "Schedules": {
+                                "description": "The schedule of policy-defined actions.",
+                                "items": {
+                                    "description": "Specifies a schedule.",
+                                    "properties": {
+                                        "CopyTags": {
+                                            "type": "boolean"
+                                        },
+                                        "CreateRule": {
+                                            "description": "The create rule.",
+                                            "properties": {
+                                                "Interval": {
+                                                    "description": "The interval. The supported values are 12 and 24.",
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                },
+                                                "IntervalUnit": {
+                                                    "description": "The interval unit.",
+                                                    "enum": [
+                                                        "HOURS"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "Times": {
+                                                    "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                    "items": {
+                                                        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                        "type": "string"
+                                                    },
+                                                    "maxItems": 1,
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "Interval",
+                                                "IntervalUnit"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "Name": {
+                                            "description": "The name of the schedule.",
+                                            "maxLength": 500,
+                                            "minLength": 0,
+                                            "type": "string"
+                                        },
+                                        "RetainRule": {
+                                            "description": "The retain rule.",
+                                            "properties": {
+                                                "Count": {
+                                                    "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                    "maximum": 1000,
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "required": [
+                                                "Count"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "TagsToAdd": {
+                                            "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                            "items": {
+                                                "description": "Specifies a tag for a resource.",
+                                                "properties": {
+                                                    "Key": {
+                                                        "description": "The tag key.",
+                                                        "type": "string"
+                                                    },
+                                                    "Value": {
+                                                        "description": "The tag value.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "Key",
+                                                    "Value"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "maxItems": 50,
+                                            "minItems": 0,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "TargetTags": {
+                                "description": "The single tag that identifies targeted resources for this policy.",
+                                "items": {
+                                    "description": "Specifies a tag for a resource.",
+                                    "properties": {
+                                        "Key": {
+                                            "description": "The tag key.",
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "description": "The tag value.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Key",
+                                        "Value"
+                                    ],
+                                    "type": "object"
+                                },
+                                "maxItems": 50,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "PolicyId": {
+                        "description": "The identifier of the lifecycle policy.",
+                        "type": "string"
+                    },
+                    "State": {
+                        "description": "The activation state of the lifecycle policy.",
+                        "enum": [
+                            "ENABLED",
+                            "DISABLED",
+                            "ERROR"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "LifecyclePolicySummary": {
+                "description": "Summary information about a lifecycle policy.",
+                "properties": {
+                    "Description": {
+                        "description": "The description of the lifecycle policy.",
+                        "maxLength": 500,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "PolicyId": {
+                        "description": "The identifier of the lifecycle policy.",
+                        "type": "string"
+                    },
+                    "State": {
+                        "description": "The activation state of the lifecycle policy.",
+                        "enum": [
+                            "ENABLED",
+                            "DISABLED",
+                            "ERROR"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "LifecyclePolicySummaryList": {
+                "items": {
+                    "description": "Summary information about a lifecycle policy.",
+                    "properties": {
+                        "Description": {
+                            "description": "The description of the lifecycle policy.",
+                            "maxLength": 500,
+                            "minLength": 0,
+                            "type": "string"
+                        },
+                        "PolicyId": {
+                            "description": "The identifier of the lifecycle policy.",
+                            "type": "string"
+                        },
+                        "State": {
+                            "description": "The activation state of the lifecycle policy.",
+                            "enum": [
+                                "ENABLED",
+                                "DISABLED",
+                                "ERROR"
+                            ],
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "type": "array"
+            },
+            "LimitExceededException": {},
+            "PolicyDescription": {
+                "maxLength": 500,
+                "minLength": 0,
+                "type": "string"
+            },
+            "PolicyDetails": {
+                "description": "Specifies the configuration of a lifecycle policy.",
+                "properties": {
+                    "ResourceTypes": {
+                        "description": "The resource type.",
+                        "items": {
+                            "enum": [
+                                "VOLUME"
+                            ],
+                            "type": "string"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "Schedules": {
+                        "description": "The schedule of policy-defined actions.",
+                        "items": {
+                            "description": "Specifies a schedule.",
+                            "properties": {
+                                "CopyTags": {
+                                    "type": "boolean"
+                                },
+                                "CreateRule": {
+                                    "description": "The create rule.",
+                                    "properties": {
+                                        "Interval": {
+                                            "description": "The interval. The supported values are 12 and 24.",
+                                            "minimum": 1,
+                                            "type": "integer"
+                                        },
+                                        "IntervalUnit": {
+                                            "description": "The interval unit.",
+                                            "enum": [
+                                                "HOURS"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "Times": {
+                                            "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                            "items": {
+                                                "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                "type": "string"
+                                            },
+                                            "maxItems": 1,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "required": [
+                                        "Interval",
+                                        "IntervalUnit"
+                                    ],
+                                    "type": "object"
+                                },
+                                "Name": {
+                                    "description": "The name of the schedule.",
+                                    "maxLength": 500,
+                                    "minLength": 0,
+                                    "type": "string"
+                                },
+                                "RetainRule": {
+                                    "description": "The retain rule.",
+                                    "properties": {
+                                        "Count": {
+                                            "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                            "maximum": 1000,
+                                            "minimum": 1,
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "Count"
+                                    ],
+                                    "type": "object"
+                                },
+                                "TagsToAdd": {
+                                    "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                    "items": {
+                                        "description": "Specifies a tag for a resource.",
+                                        "properties": {
+                                            "Key": {
+                                                "description": "The tag key.",
+                                                "type": "string"
+                                            },
+                                            "Value": {
+                                                "description": "The tag value.",
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "Key",
+                                            "Value"
+                                        ],
+                                        "type": "object"
+                                    },
+                                    "maxItems": 50,
+                                    "minItems": 0,
+                                    "type": "array"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "maxItems": 1,
+                        "minItems": 1,
+                        "type": "array"
+                    },
+                    "TargetTags": {
+                        "description": "The single tag that identifies targeted resources for this policy.",
+                        "items": {
+                            "description": "Specifies a tag for a resource.",
+                            "properties": {
+                                "Key": {
+                                    "description": "The tag key.",
+                                    "type": "string"
+                                },
+                                "Value": {
+                                    "description": "The tag value.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Key",
+                                "Value"
+                            ],
+                            "type": "object"
+                        },
+                        "maxItems": 50,
+                        "minItems": 1,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "PolicyId": {
+                "type": "string"
+            },
+            "PolicyIdList": {
+                "items": {
+                    "type": "string"
+                },
+                "type": "array"
+            },
+            "ResourceNotFoundException": {},
+            "ResourceTypeValues": {
+                "enum": [
+                    "VOLUME"
+                ],
+                "type": "string"
+            },
+            "ResourceTypeValuesList": {
+                "items": {
+                    "enum": [
+                        "VOLUME"
+                    ],
+                    "type": "string"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+            },
+            "RetainRule": {
+                "description": "Specifies the number of snapshots to keep for each EBS volume.",
+                "properties": {
+                    "Count": {
+                        "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                        "maximum": 1000,
+                        "minimum": 1,
+                        "type": "integer"
+                    }
+                },
+                "required": [
+                    "Count"
+                ],
+                "type": "object"
+            },
+            "Schedule": {
+                "description": "Specifies a schedule.",
+                "properties": {
+                    "CopyTags": {
+                        "type": "boolean"
+                    },
+                    "CreateRule": {
+                        "description": "The create rule.",
+                        "properties": {
+                            "Interval": {
+                                "description": "The interval. The supported values are 12 and 24.",
+                                "minimum": 1,
+                                "type": "integer"
+                            },
+                            "IntervalUnit": {
+                                "description": "The interval unit.",
+                                "enum": [
+                                    "HOURS"
+                                ],
+                                "type": "string"
+                            },
+                            "Times": {
+                                "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                "items": {
+                                    "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                    "type": "string"
+                                },
+                                "maxItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "required": [
+                            "Interval",
+                            "IntervalUnit"
+                        ],
+                        "type": "object"
+                    },
+                    "Name": {
+                        "description": "The name of the schedule.",
+                        "maxLength": 500,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "RetainRule": {
+                        "description": "The retain rule.",
+                        "properties": {
+                            "Count": {
+                                "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                "maximum": 1000,
+                                "minimum": 1,
+                                "type": "integer"
+                            }
+                        },
+                        "required": [
+                            "Count"
+                        ],
+                        "type": "object"
+                    },
+                    "TagsToAdd": {
+                        "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                        "items": {
+                            "description": "Specifies a tag for a resource.",
+                            "properties": {
+                                "Key": {
+                                    "description": "The tag key.",
+                                    "type": "string"
+                                },
+                                "Value": {
+                                    "description": "The tag value.",
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "Key",
+                                "Value"
+                            ],
+                            "type": "object"
+                        },
+                        "maxItems": 50,
+                        "minItems": 0,
+                        "type": "array"
+                    }
+                },
+                "type": "object"
+            },
+            "ScheduleList": {
+                "items": {
+                    "description": "Specifies a schedule.",
+                    "properties": {
+                        "CopyTags": {
+                            "type": "boolean"
+                        },
+                        "CreateRule": {
+                            "description": "The create rule.",
+                            "properties": {
+                                "Interval": {
+                                    "description": "The interval. The supported values are 12 and 24.",
+                                    "minimum": 1,
+                                    "type": "integer"
+                                },
+                                "IntervalUnit": {
+                                    "description": "The interval unit.",
+                                    "enum": [
+                                        "HOURS"
+                                    ],
+                                    "type": "string"
+                                },
+                                "Times": {
+                                    "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                    "items": {
+                                        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                        "type": "string"
+                                    },
+                                    "maxItems": 1,
+                                    "type": "array"
+                                }
+                            },
+                            "required": [
+                                "Interval",
+                                "IntervalUnit"
+                            ],
+                            "type": "object"
+                        },
+                        "Name": {
+                            "description": "The name of the schedule.",
+                            "maxLength": 500,
+                            "minLength": 0,
+                            "type": "string"
+                        },
+                        "RetainRule": {
+                            "description": "The retain rule.",
+                            "properties": {
+                                "Count": {
+                                    "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                    "maximum": 1000,
+                                    "minimum": 1,
+                                    "type": "integer"
+                                }
+                            },
+                            "required": [
+                                "Count"
+                            ],
+                            "type": "object"
+                        },
+                        "TagsToAdd": {
+                            "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                            "items": {
+                                "description": "Specifies a tag for a resource.",
+                                "properties": {
+                                    "Key": {
+                                        "description": "The tag key.",
+                                        "type": "string"
+                                    },
+                                    "Value": {
+                                        "description": "The tag value.",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "Key",
+                                    "Value"
+                                ],
+                                "type": "object"
+                            },
+                            "maxItems": 50,
+                            "minItems": 0,
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "maxItems": 1,
+                "minItems": 1,
+                "type": "array"
+            },
+            "ScheduleName": {
+                "maxLength": 500,
+                "minLength": 0,
+                "type": "string"
+            },
+            "SettablePolicyStateValues": {
+                "enum": [
+                    "ENABLED",
+                    "DISABLED"
+                ],
+                "type": "string"
+            },
+            "String": {
+                "type": "string"
+            },
+            "Tag": {
+                "description": "Specifies a tag for a resource.",
+                "properties": {
+                    "Key": {
+                        "description": "The tag key.",
+                        "type": "string"
+                    },
+                    "Value": {
+                        "description": "The tag value.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "Key",
+                    "Value"
+                ],
+                "type": "object"
+            },
+            "TagFilter": {
+                "type": "string"
+            },
+            "TagsToAddFilterList": {
+                "items": {
+                    "type": "string"
+                },
+                "maxItems": 50,
+                "minItems": 0,
+                "type": "array"
+            },
+            "TagsToAddList": {
+                "items": {
+                    "description": "Specifies a tag for a resource.",
+                    "properties": {
+                        "Key": {
+                            "description": "The tag key.",
+                            "type": "string"
+                        },
+                        "Value": {
+                            "description": "The tag value.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Key",
+                        "Value"
+                    ],
+                    "type": "object"
+                },
+                "maxItems": 50,
+                "minItems": 0,
+                "type": "array"
+            },
+            "TargetTagList": {
+                "items": {
+                    "description": "Specifies a tag for a resource.",
+                    "properties": {
+                        "Key": {
+                            "description": "The tag key.",
+                            "type": "string"
+                        },
+                        "Value": {
+                            "description": "The tag value.",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "Key",
+                        "Value"
+                    ],
+                    "type": "object"
+                },
+                "maxItems": 50,
+                "minItems": 1,
+                "type": "array"
+            },
+            "TargetTagsFilterList": {
+                "items": {
+                    "type": "string"
+                },
+                "maxItems": 50,
+                "minItems": 1,
+                "type": "array"
+            },
+            "Time": {
+                "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                "type": "string"
+            },
+            "TimesList": {
+                "items": {
+                    "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                    "type": "string"
+                },
+                "maxItems": 1,
+                "type": "array"
+            },
+            "Timestamp": {
+                "format": "date-time",
+                "type": "string"
+            },
+            "UpdateLifecyclePolicyRequest": {
+                "properties": {
+                    "Description": {
+                        "description": "A description of the lifecycle policy.",
+                        "maxLength": 500,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "ExecutionRoleArn": {
+                        "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy.",
+                        "type": "string"
+                    },
+                    "PolicyDetails": {
+                        "description": "<p>The configuration of the lifecycle policy.</p> <p>Target tags cannot be re-used across policies.</p>",
+                        "properties": {
+                            "ResourceTypes": {
+                                "description": "The resource type.",
+                                "items": {
+                                    "enum": [
+                                        "VOLUME"
+                                    ],
+                                    "type": "string"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "Schedules": {
+                                "description": "The schedule of policy-defined actions.",
+                                "items": {
+                                    "description": "Specifies a schedule.",
+                                    "properties": {
+                                        "CopyTags": {
+                                            "type": "boolean"
+                                        },
+                                        "CreateRule": {
+                                            "description": "The create rule.",
+                                            "properties": {
+                                                "Interval": {
+                                                    "description": "The interval. The supported values are 12 and 24.",
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                },
+                                                "IntervalUnit": {
+                                                    "description": "The interval unit.",
+                                                    "enum": [
+                                                        "HOURS"
+                                                    ],
+                                                    "type": "string"
+                                                },
+                                                "Times": {
+                                                    "description": "<p>The time, in UTC, to start the operation.</p> <p>The operation occurs within a one-hour window following the specified time.</p>",
+                                                    "items": {
+                                                        "pattern": "^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$",
+                                                        "type": "string"
+                                                    },
+                                                    "maxItems": 1,
+                                                    "type": "array"
+                                                }
+                                            },
+                                            "required": [
+                                                "Interval",
+                                                "IntervalUnit"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "Name": {
+                                            "description": "The name of the schedule.",
+                                            "maxLength": 500,
+                                            "minLength": 0,
+                                            "type": "string"
+                                        },
+                                        "RetainRule": {
+                                            "description": "The retain rule.",
+                                            "properties": {
+                                                "Count": {
+                                                    "description": "The number of snapshots to keep for each volume, up to a maximum of 1000.",
+                                                    "maximum": 1000,
+                                                    "minimum": 1,
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "required": [
+                                                "Count"
+                                            ],
+                                            "type": "object"
+                                        },
+                                        "TagsToAdd": {
+                                            "description": "The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.",
+                                            "items": {
+                                                "description": "Specifies a tag for a resource.",
+                                                "properties": {
+                                                    "Key": {
+                                                        "description": "The tag key.",
+                                                        "type": "string"
+                                                    },
+                                                    "Value": {
+                                                        "description": "The tag value.",
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "Key",
+                                                    "Value"
+                                                ],
+                                                "type": "object"
+                                            },
+                                            "maxItems": 50,
+                                            "minItems": 0,
+                                            "type": "array"
+                                        }
+                                    },
+                                    "type": "object"
+                                },
+                                "maxItems": 1,
+                                "minItems": 1,
+                                "type": "array"
+                            },
+                            "TargetTags": {
+                                "description": "The single tag that identifies targeted resources for this policy.",
+                                "items": {
+                                    "description": "Specifies a tag for a resource.",
+                                    "properties": {
+                                        "Key": {
+                                            "description": "The tag key.",
+                                            "type": "string"
+                                        },
+                                        "Value": {
+                                            "description": "The tag value.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "Key",
+                                        "Value"
+                                    ],
+                                    "type": "object"
+                                },
+                                "maxItems": 50,
+                                "minItems": 1,
+                                "type": "array"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "State": {
+                        "description": "The desired activation state of the lifecycle policy after creation.",
+                        "enum": [
+                            "ENABLED",
+                            "DISABLED"
+                        ],
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "UpdateLifecyclePolicyResponse": {
+                "properties": {},
+                "type": "object"
+            }
+        },
+        "parameters": {
+            "Action": {
+                "in": "query",
+                "name": "Action",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "Version": {
+                "in": "query",
+                "name": "Version",
+                "required": true,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Algorithm": {
+                "in": "header",
+                "name": "X-Amz-Algorithm",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Content-Sha256": {
+                "in": "header",
+                "name": "X-Amz-Content-Sha256",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Credential": {
+                "in": "header",
+                "name": "X-Amz-Credential",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Date": {
+                "in": "header",
+                "name": "X-Amz-Date",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Security-Token": {
+                "in": "header",
+                "name": "X-Amz-Security-Token",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-Signature": {
+                "in": "header",
+                "name": "X-Amz-Signature",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            },
+            "X-Amz-SignedHeaders": {
+                "in": "header",
+                "name": "X-Amz-SignedHeaders",
+                "required": false,
+                "schema": {
+                    "type": "string"
+                }
+            }
+        },
+        "requestBodies": {
+            "GetLifecyclePoliciesBody": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "properties": {},
+                            "type": "object"
+                        }
+                    }
+                },
+                "required": true
+            }
+        },
+        "securitySchemes": {
+            "hmac": {
+                "description": "Amazon Signature authorization v4",
+                "in": "header",
+                "name": "Authorization",
+                "type": "apiKey",
+                "x-amazon-apigateway-authtype": "awsSigv4"
+            }
+        }
+    }
+}

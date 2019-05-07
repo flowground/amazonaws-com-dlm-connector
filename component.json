@@ -1,0 +1,125 @@
+{
+    "title": "Amazon Data Lifecycle Manager",
+    "description": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+    "docsUrl": "https://aws.amazon.com/dlm/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/dlm/2018-01-12/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://dlm.amazonaws.com/",
+                    "http://dlm.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "GetLifecyclePolicies": {
+            "main": "./lib/actions/GetLifecyclePolicies.js",
+            "title": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
+            "description": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetLifecyclePolicies.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateLifecyclePolicy": {
+            "main": "./lib/actions/CreateLifecyclePolicy.js",
+            "title": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
+            "description": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateLifecyclePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateLifecyclePolicy": {
+            "main": "./lib/actions/UpdateLifecyclePolicy.js",
+            "title": "Updates the specified lifecycle policy.",
+            "description": "Updates the specified lifecycle policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateLifecyclePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteLifecyclePolicy": {
+            "main": "./lib/actions/DeleteLifecyclePolicy.js",
+            "title": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
+            "description": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteLifecyclePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetLifecyclePolicy": {
+            "main": "./lib/actions/GetLifecyclePolicy.js",
+            "title": "Gets detailed information about the specified lifecycle policy.",
+            "description": "Gets detailed information about the specified lifecycle policy.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetLifecyclePolicy.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
