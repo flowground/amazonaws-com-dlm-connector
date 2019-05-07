@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) Amazon Data Lifecycle Manager MSP Connector
+# ![LOGO](logo.png) Amazon Data Lifecycle Manager **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the Amazon Data Lifecycle Manager API (version 2018-01-12).
+A generated **flow**ground connector for the Amazon Data Lifecycle Manager API (version 2018-01-12).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/dlm/2018-01-12/swagger.json<br/>
-Generated at: 2019-05-07T11:15:43+03:00
+Generated at: 2019-05-07T17:35:20+03:00
 
 ## API Description
 
@@ -84,7 +84,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-dlm-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-dlm-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
