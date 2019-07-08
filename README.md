@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the Amazon Data Lifecycle Manager API (version 2018-01-12).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/dlm/2018-01-12/swagger.json<br/>
-Generated at: 2019-05-07T17:35:20+03:00
+Generated at: 2019-07-08T14:12:41+03:00
 
 ## API Description
 
@@ -17,7 +17,8 @@ Supported authorization schemes:
 - API Key
 ## Actions
 
-### <p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>
+### GetLifecyclePolicies
+<blockquote><p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p></blockquote>
 
 #### Input Parameters
 * `Action` - _required_
@@ -30,7 +31,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.
+### CreateLifecyclePolicy
+> Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.<br/>
 
 #### Input Parameters
 * `Action` - _required_
@@ -43,7 +45,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Updates the specified lifecycle policy.
+### UpdateLifecyclePolicy
+> Updates the specified lifecycle policy.<br/>
 
 #### Input Parameters
 * `policyId` - _required_
@@ -56,7 +59,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Deletes the specified lifecycle policy and halts the automated operations that the policy specified.
+### DeleteLifecyclePolicy
+> Deletes the specified lifecycle policy and halts the automated operations that the policy specified.<br/>
 
 #### Input Parameters
 * `policyId` - _required_
@@ -69,7 +73,8 @@ Supported authorization schemes:
 * `X-Amz-Signature` - _optional_
 * `X-Amz-SignedHeaders` - _optional_
 
-### Gets detailed information about the specified lifecycle policy.
+### GetLifecyclePolicy
+> Gets detailed information about the specified lifecycle policy.<br/>
 
 #### Input Parameters
 * `policyId` - _required_

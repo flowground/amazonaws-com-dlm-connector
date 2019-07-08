@@ -1,6 +1,6 @@
 {
     "title": "Amazon Data Lifecycle Manager",
-    "description": "<fullname>Amazon Data Lifecycle Manager</fullname> <p>With Amazon Data Lifecycle Manager, you can manage the lifecycle of your AWS resources. You create lifecycle policies, which are used to automate operations on the specified resources.</p> <p>Amazon DLM supports Amazon EBS volumes and snapshots. For information about using Amazon DLM with Amazon EBS, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html\">Automating the Amazon EBS Snapshot Lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>",
+    "description": "Amazon Data Lifecycle Manager With Amazon Data Lifecycle Manager, you can manage\nthe lifecycle of your AWS resources. You create lifecycle policies, which are\nused to automate operations on the specified resources.\n\nAmazon DLM supports Amazon EBS volumes and snapshots. For information about\nusing Amazon DLM with Amazon EBS, see Automating the Amazon EBS Snapshot\nLifecycle\n[https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html] in\nthe Amazon EC2 User Guide.",
     "docsUrl": "https://aws.amazon.com/dlm/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/dlm/2018-01-12/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,8 +38,8 @@
     "actions": {
         "GetLifecyclePolicies": {
             "main": "./lib/actions/GetLifecyclePolicies.js",
-            "title": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
-            "description": "<p>Gets summary information about all or the specified data lifecycle policies.</p> <p>To get complete information about a policy, use <a>GetLifecyclePolicy</a>.</p>",
+            "title": "GetLifecyclePolicies",
+            "description": "Gets summary information about all or the specified data lifecycle policies.\n\nTo get complete information about a policy, use GetLifecyclePolicy.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -55,7 +55,7 @@
         },
         "CreateLifecyclePolicy": {
             "main": "./lib/actions/CreateLifecyclePolicy.js",
-            "title": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
+            "title": "CreateLifecyclePolicy",
             "description": "Creates a policy to manage the lifecycle of the specified AWS resources. You can create up to 100 lifecycle policies.",
             "fields": {
                 "verbose": {
@@ -72,7 +72,7 @@
         },
         "UpdateLifecyclePolicy": {
             "main": "./lib/actions/UpdateLifecyclePolicy.js",
-            "title": "Updates the specified lifecycle policy.",
+            "title": "UpdateLifecyclePolicy",
             "description": "Updates the specified lifecycle policy.",
             "fields": {
                 "verbose": {
@@ -89,7 +89,7 @@
         },
         "DeleteLifecyclePolicy": {
             "main": "./lib/actions/DeleteLifecyclePolicy.js",
-            "title": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
+            "title": "DeleteLifecyclePolicy",
             "description": "Deletes the specified lifecycle policy and halts the automated operations that the policy specified.",
             "fields": {
                 "verbose": {
@@ -106,7 +106,7 @@
         },
         "GetLifecyclePolicy": {
             "main": "./lib/actions/GetLifecyclePolicy.js",
-            "title": "Gets detailed information about the specified lifecycle policy.",
+            "title": "GetLifecyclePolicy",
             "description": "Gets detailed information about the specified lifecycle policy.",
             "fields": {
                 "verbose": {
